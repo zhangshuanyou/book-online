@@ -9,7 +9,8 @@ import PersonalPage from '@/components/page/personal-page/PersonalPage'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
+    mode:'history',
+    routes: [
     {
       path: '/',
       name: 'HomePage',
