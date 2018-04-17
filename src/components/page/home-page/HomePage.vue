@@ -23,6 +23,14 @@
       <i class="fa fa-bell fa-lg broadcast-i"></i>
       双12全场图书低至1折，更有隐藏神秘惊喜
     </span>
+    <!-- 新书上架 -->
+    <section>
+      <h2>新书上架</h2>
+      <ul>
+        <li>
+        </li>
+      </ul>
+    </section>
     </main>
     
   </div>
