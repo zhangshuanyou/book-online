@@ -41,7 +41,7 @@ html,body {
   width: 100%;
   
 }
-ul{
+.footer{
   width: 100%;
   list-style: none;
   padding: 0;
