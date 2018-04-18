@@ -172,5 +172,4 @@ export default {
 <style scoped>
  @import '../../common/common.scss';
  @import './ShoppingCart.scss';
-
 </style>

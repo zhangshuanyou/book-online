@@ -6,18 +6,11 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'ClassIficaton',
-  data () {
-    return {
-       msg:'222222'
-    }
-  }
-}
+<script src="./class-page.js">
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import '../../common/common.scss'
+  @import '../../common/common.scss';
+  @import './class-page.scss';
 </style>
