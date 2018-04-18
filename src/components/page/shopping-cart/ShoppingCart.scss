@@ -1,0 +1,180 @@
+.ShoppingCart{
+    box-sizing: border-box;
+    background-color: rgb(242, 242, 242);
+    position: relative;
+}
+.cart-delete{
+    cursor: pointer;
+    margin: 10px;
+    position: absolute;
+    right: 0;
+}
+.cart-eddit{
+       font-size: 14px;
+       margin-left: 250px;
+       color:  rgb(0, 56, 161); 
+          }
+          p{
+            margin: 0;
+            overflow: hidden;
+            max-width: 200px;
+            text-overflow: ellipsis;
+        }
+    
+             
+ .cart-dele{
+    margin-left: 200px;
+    }    
+        .cart-cancle{
+            font-size: 13px;
+            color: rgb(0, 56, 161);
+            }
+                .cart-Selected{
+                    font-size: 13px;
+                    color:orangered;
+                    }
+    .cart-box{
+        position: absolute;
+        top: 47%;
+    }
+
+
+    // button
+    .cart-pay{
+        
+    }
+.btn{
+    width: 80%;
+    height: 35px;
+    text-align: center;
+    background-color: green;
+    border-radius:8px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    outline:none;
+    margin-top: 30px;
+    }
+.cart-span{
+    display: block;
+    width: 15px;
+    height: 15px;
+    border:1px solid #282928;
+    border-radius: 50%;
+    }
+    .cart-select{
+    display: block;
+    width: 15px;
+    height: 15px;
+    border:1px solid  rgb(77, 182, 243);
+    background: rgb(77, 182, 243);
+    color: #fff;
+    border-radius: 50%;
+        }
+    .cart-span-c{
+        margin-left: -2px;
+        display: block;
+        }
+   
+    .cart-book-box{
+            width: 80%;
+            margin: 0 auto;
+            position: relative;
+        }
+        .infoBox{
+            overflow: hidden;
+            display: inline-block;
+        }
+    img{
+         width: 90px;
+         height: 110px; 
+         float: left;
+         
+        } 
+        .clear{
+            clear: both;
+        }
+       
+        .bookname{
+           position: absolute;
+           top: 30px;
+           left: 105px;
+            white-space: nowrap;
+            font-size: 14px;
+            font-weight: 400;
+            font-style: normal;
+            color: rgb(51, 102, 204);
+            overflow: hidden;
+        }
+        .bookauthor{
+            position: absolute;
+           top: 55px;
+           left: 105px;
+            font-size: 13px;
+            font-weight: 400;
+            font-style: normal;
+            color: rgb(121, 121, 121);
+            overflow: hidden;
+        }
+        .bookprice{
+            position: absolute;
+           top: 80px;
+           left: 105px;
+            font-size: 18px;
+            font-weight: 400;
+            font-style: normal;
+            color: rgb(204, 102, 51);
+            overflow: hidden;
+        }
+
+
+.cart-count-box{ 
+     position: absolute;
+     width: 80px;
+     right: 0;
+     top: 100px;
+     bottom: 10px;
+     border: 1px solid rgb(199, 199, 199);
+     height: 20px;
+}
+.cart-min{
+    border-right: 1px solid rgb(199, 199, 199);
+    height: 100%;
+    width: 20px;
+    display: inline-block;
+    text-align: center
+}
+.cart-add{
+    border-left: 1px solid rgb(199, 199, 199);
+    height: 100%;
+    display: inline-block;
+    width: 20px;
+    text-align: center
+}
+.cart-count{
+    height: 100%;
+    display: inline-block;
+    width: 20px;
+    text-align: center
+}       
+
+ul{
+   list-style: none; 
+   margin: 40px 10px 0 10px;
+   padding: 0;
+   }
+   li{
+    position: relative;
+    list-style: none;
+    background-color: #fff;
+    padding:10px 2px;
+    transition: all .25s linear;
+    border-bottom: 1px solid rgb(199, 199, 199);
+   }
+
+ 
+
+
+
+
+    
