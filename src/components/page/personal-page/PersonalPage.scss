@@ -3,8 +3,19 @@ html,body,ul,li{
   padding: 0;
   width: 100%;
 }
-.content{
-  margin-bottom: 40px;
+.PersonalPage>header{
+  background-color: #000;
+  color: white;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  position: relative;
+}
+.backbtn{
+  position: absolute;
+  left: 10px;
+  font-size: 35px;
+  vertical-align: middle;
 }
 ul,li{
   list-style: none;
@@ -13,9 +24,8 @@ ul,li{
 a{
   text-decoration: none;
 }
-.personcenter{
+.PersonalPage{
   font-family: '微软雅黑';
-  color: white;
   font-size: 14px;
 }
 
@@ -142,6 +152,7 @@ a{
 
 
 .logsuceess{
+  width: 100%;
    background-color: rgba(242,242,242,1);
    position: relative;
 }
@@ -183,13 +194,12 @@ a{
 
 
 ul{
-  width:100%;
   margin-top: 15px;
-  padding: 0 15px;
-  
+}
+.clean{
+  clear: both;
 }
 ul>li{
-  width: 100%;
   height: 40px;
   line-height: 50px;
   border-bottom: 1px solid rgba(215,215,215,1);
@@ -197,6 +207,16 @@ ul>li{
 ul>li>a{
   color: rgba(94,94,94,1);
   font-size: 13px;
+  height: 20px;
+  float: left;
+}
+ul>li>span{
+  width: 50px;
+  height: 20px;
+  float: right;
+}
+.clean{
+  clear: both;
 }
 .personinfo{
   margin-top: 25px;
@@ -211,13 +231,14 @@ ul>li>a{
 
 
 .outlogbutton{
-   width: 100%;
+   width: 90%;
    padding: 0 15px;
    margin: 20px 0;
 }
 .outlogbutton>button{
   width: 100%;
   height: 50px;
+  font-size: 18px;
   line-height:50px;
   outline: none;
   border: 0;

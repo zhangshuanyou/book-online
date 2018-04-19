@@ -1,7 +1,10 @@
 <template>
   <div class="PersonalPage">
-    <header>个人中心</header>
-    <div class="header"></div>
+    <header>
+    <i class="fa fa-angle-left backbtn" v-show="showback" @click="back"></i>
+        <i class="fa fa-angle-left backbtn" v-show="showback2" @click="back2"></i>
+       {{ logtitle }}
+        </header>
       <div class="content">
         <!-- 登录注册页面 -->
         <div class="notlog" v-show="notlogstates">
@@ -44,24 +47,30 @@
            <p class="personname">{{personname}}</p>
         </div>
         <ul class="personinfo">
-          <li @click="topersondata"><a >设置个人资料</a><a>></a></li>
-          <li @click="toaddress"><a >收货地址管理</a><a>></a></li>
+          <router-link @click="topersondata" tag="li" :to="{name:'PersonalData'}"><a >设置个人资料</a><span>></span></router-link>
+          <li @click="toaddress"><a >收货地址管理</a><span>></span></li>
         </ul>
         <ul class="mycomment">
-          <li><a>我的订单</a> <a>></a></li>
-          <li><a >我的评价</a><a>></a></li>
+          <li><a>我的订单</a><span>></span> </li>
+          <li><a >我的评价</a><span>></span></li>
         </ul>
         <ul class="collection">
-          <li><a >商品收藏</a><a>></a></li>
-          <li><a >店铺收藏</a><a>></a></li>
-          <li><a >浏览记录</a><a>></a></li>
+          <li><a >商品收藏</a><span>></span></li>
+          <li><a >店铺收藏</a><span>></span></li>
+          <li><a >浏览记录</a><span>></span></li>
         </ul>
+        <div class="clean"></div>
         <div class="outlogbutton">
           <button type="button" @click="logoff">退出登录</button>
         </div>
       
       </div>
-       
+        <!-- <transition name="slide-fade">
+          <PersonalData v-show="showpersonerdata" @showdatachange= "showdatachanges"></PersonalData>
+        </transition>
+        <transition name="slide-fade">
+         <Changge v-show="showaddress"></Changge>
+        </transition> -->
       </div>
   </div>
 
@@ -69,11 +78,8 @@
 </template>
 
 <script>
-export default {
-  name: 'PersonalPage',
-  components:{
-
-  },
+export default { 
+  name: 'PersonalPage', 
   data () {
     return {
     logtitle:'登录/注册',
@@ -224,8 +230,7 @@ export default {
 
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
-@import '../../common/common.scss';
 @import './PersonalPage.scss';
 </style>
