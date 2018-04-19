@@ -1,0 +1,134 @@
+
+   html,body {
+     margin: 0;
+     padding: 0;
+    height: 100%;
+    color: #000;
+    font: 16px "Microsoft YaHei",sans-serif,Arial;
+  }
+  #personaldata>header{
+    background-color: #000;
+    color: white;
+    height: 50px;
+    line-height: 45px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+  }
+  .header{
+    width: 100%;
+    height: 50px;
+    position: relative;
+  }
+  ::before{
+    float: left;
+  }
+
+  #personaldata{
+    width: 100%;
+    & > .mask{
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      position: fixed;
+      top: 0;left: 0;
+      color: #000;
+      & > div{
+        width: 300px;
+        height: 200px;
+        text-align: center;
+        margin: 200px auto;
+        background-color: #fff;
+        border: 1px solid #eee;
+
+        & > p {
+          margin-top: 20px;
+          font-size: 18px;
+        }
+        & > button{
+          width: 100px;
+          height: 35px;
+          border: none;
+          outline: none;
+          background-color: rgba(51,153,51,1);
+          color: #fff;
+          margin-top: 30px;
+        }
+      }
+
+    }
+    & > div#medescipbediv{
+      text-align: left;
+      height: 100px;
+    }
+    & > div.choosegender{
+      text-align: left;
+      span{
+        margin-left: 28px;
+        margin-right: 50px;
+      }
+      & > div{
+        display: inline-block;
+      }
+
+    }
+    & > div{
+      color: #000;
+      height: 50px;
+      line-height: 55px;
+      border-bottom: 1px solid rgba(174,174,174,1);
+      text-align: left;
+      div.genderchoose{
+        width: 50px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 0 4px;
+        display: inline-block;
+        &.checked{
+          background-color: rgba(51,153,51,1);
+          color: #fff;
+        }
+      }
+      span{
+        height: 30px;
+        color: rgba(152,152,152,1);
+        margin-left: 28px;
+        margin-right: 50px;
+      }
+      input{
+        // width: calc(100% - 114px);
+        height: 30px;
+        margin-left:50px;
+        outline: none;
+        border: none;
+      }
+      textarea{
+        margin-top: -39px;
+       margin-left: 120px;
+        vertical-align:top;
+        height: 80px;
+        width: 200px;
+        outline: none;
+        border: none;
+      }
+    }
+    & > p{
+      margin-top: 20px;
+      color: rgb(236, 38, 38);
+    }
+    & > button{
+      width: 100%;
+      height: 50px;
+      // margin-top: 10px;
+      color: #fff;
+      background-color: rgba(53, 154, 53, 1);
+      outline: none;
+      border: none;
+      border-radius: 5px;
+    }
+
+  }
