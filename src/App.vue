@@ -20,7 +20,6 @@
         <p>个人</p>
         </router-link>      
     </ul>
-    
   </div>
 </template>
 
@@ -39,23 +38,29 @@ html,body {
   color: #2c3e50;
   margin: 0px;
   width: 100%;
-  
+  height: 100%;
 }
-ul{
+#app{
+    height: 100%;
+    
+}
+.footer{
   width: 100%;
+  height: 70px;
   list-style: none;
   padding: 0;
   position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  background: #fff;  
   display: flex;
   display: -webkit-flex;
   justify-content: space-between;
   text-align: center;
   border-top: 1px solid rgb(219, 218, 218);
   padding-top:5px;
-  margin: 0 0 5px 0;
+  margin: 0;
   & > li{
     width: calc(100% /4);
     text-align: center;
@@ -71,5 +76,9 @@ ul{
 }
 ul .active{
     color: green;
+}
+.blank{
+  height: 70px;
+  margin: 0;
 }
 </style>

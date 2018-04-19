@@ -65,6 +65,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ]),
+    new webpack.ProvidePlugin({
+      axios:'axios'
+    })
   ]
 })
 
