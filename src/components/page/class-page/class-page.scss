@@ -1,0 +1,82 @@
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.hello{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+main{
+    width: 100%;
+    height: calc(100% - 130px);
+    overflow: auto;
+}
+.class-input{
+    box-sizing: border-box;
+    width: 90%;
+    padding: 10px 0px 10px 20px;
+    border-radius: 19.5px;
+    border: 2px solid #ccc;
+    outline: none;
+    font-size: 16px;
+    margin: 20px 0;
+}
+.book-info{ 
+    width: 100%;  
+}
+.book-info li{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    position: relative;
+}
+.book-info li span{
+    display: inline-block;
+    box-sizing: border-box; 
+    height: 100%;
+}
+.book-info li i{
+    font-size: 20px;
+    color: rgb(173, 169, 169);
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.book-left{
+    width: 30%;
+}
+.book-left img {
+    width: 100%;
+    height: 100%;
+}
+.book-right{
+    width: 65%;
+    padding: 0 10px;
+    box-sizing: border-box;
+} 
+.book-right p{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    margin: 0;
+    text-align: left;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.book-name{
+    font-size: 18px !important;    
+    color: rgb(51, 102, 204);
+}
+.book-price{
+    color: rgb(204, 102, 51);
+    font-size: 20px !important;
+}

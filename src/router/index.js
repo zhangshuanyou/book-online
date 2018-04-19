@@ -6,6 +6,9 @@ import ShoppingCart from '@/components/page/shopping-cart/ShoppingCart'
 import PersonalPage from '@/components/page/personal-page/PersonalPage'
 import PersonalData from '@/components/page/personal-page/PersonalData'
 import Changge from '@/components/page/personal-page/Changge'
+import Details from '@/components/page/home-page/Details'
+import Settlement from '@/components/page/shopping-cart/Settlement'
+
 
 
 
@@ -44,6 +47,17 @@ export default new Router({
       name: 'Changge',
       component: Changge
     },
+
+      path:'/details',
+      name:'Details',
+      component:Details
+    },
+    {
+      path:'/settlement',
+      name:'Settlement',
+      component:Settlement
+    }
+
   ],
   linkActiveClass: 'active'
 })

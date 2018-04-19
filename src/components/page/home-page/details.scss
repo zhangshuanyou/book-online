@@ -1,0 +1,134 @@
+.Details{
+    height: 100%;
+   overflow: hidden;
+}
+section{
+    height: calc(100% - 130px);
+    overflow: auto;
+}
+header{
+    position: relative;
+    &> .home-page{
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 30px;
+    }
+}
+.book-btn{
+    & > button{
+      width: 120px;
+      height: 35px;
+      margin: 15px 8px 0 0;
+      border: none;
+      font-size: 14px;
+      border-radius: 7px;
+    }
+    & >button:hover{
+      background: green;
+      color: #fff;
+      outline: none;
+    }
+  }
+.price-number{
+    box-sizing: border-box;
+   width: 100%;
+   height: 40px;
+   line-height: 40px;
+   text-align: left;
+   border-top: 2px solid #ccc;
+   border-bottom: 2px solid #ccc; 
+   display: flex;
+   display: -webkit-flex;
+   justify-content: space-between;
+   &> span{
+     display: inline-block;
+     box-sizing: border-box;
+     width: 50%;
+     height: 100%;
+     line-height: 40px;
+     text-align: left;
+     font-weight: bold;
+     font-size: 20px;
+     
+   }
+   & >.frist{
+     text-align: center;
+     border-right: 2px solid #ccc;
+   }  
+ }
+.book-info{
+    width: 100%;
+   & > .book-info-top{
+     width: 100%;
+     position: relative;
+     text-align: left;
+     padding: 15px 15px 0 15px;
+     box-sizing: border-box;
+     display: flex;
+     display: -webkit-flex;
+     justify-content: space-between;
+     & > img{
+       width: 35%;
+       height: 3%;
+     }
+     & > span{
+       display: inline-block;
+       text-align: left;
+       font-size: 14px;
+       & > label{
+         display: inline-block;
+         height: 20px;
+       }
+     }
+     & > .bit-bottom{
+       position: absolute;
+       right: 15px;
+       bottom: 0px;
+       text-align: center;
+     }
+   }
+   & > .book-title{
+     text-align: center;
+     padding-left: 15px;
+     font-weight: bold;
+   }
+   & > .book-content{
+     display: inline-block;
+     font-size: 14px;
+     height: 150px;
+     box-sizing: border-box;
+     overflow: hidden;
+   }
+  }
+  .info-class{
+      width: 100%;
+      height: 200px;
+      box-sizing: border-box;
+      text-align: center;
+      margin: 20px auto 0;
+      & > fieldset{
+          box-sizing: border-box;
+          margin: 0 auto 20px;
+          padding: 8px;
+          width: 90%;
+          height: 100%;
+          font-size: 14px;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+          overflow: hidden;
+          & >legend{
+              font-size: 16px;
+              text-align: left;
+              font-weight: bolder;
+          }
+      }
+  }
+  .book-blank{
+      width: 100%;
+      height: 30px;
+      background: rgb(238, 236, 236);
+      margin: 30px auto;
+  }
