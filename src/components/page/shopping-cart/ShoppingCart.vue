@@ -4,7 +4,13 @@
       购物车
       </header>
     <div class="header"></div>
-    <!-- 编辑和删除部分 -->
+    <div class="shopping-blank" v-show="shoppingshow">
+      <span class="shopping-blank-span">
+        购物车里空空如也，<router-link tag="a" :to="{name:'HomePage'}">去逛逛？</router-link>
+      </span>
+    </div>
+    <div class="commodity" v-show="aaa">
+      <!-- 编辑和删除部分 -->
     <div class="cart-delete">
       <span v-if="eddit" class="cart-eddit" @click="edditBtn">编辑</span>
       <div v-else class="cart-dele">
@@ -39,11 +45,12 @@
         </div>
       </li>
     </ul>
-      <span class="total-price">商品总价:<i class="total-price-i">￥{{ totalPrice }}</i></span>
+      <span class="total-price">商品总价:<i class="total-price-i">{{totalprice}}</i></span>
     <div class="cart-pay">
       <button @click="showcenter" class="btn">前往支付</button>
     </div>
 
+    </div>
   </div>
 </template>
 
@@ -57,7 +64,9 @@ export default {
        show:false,
        eddit:true,
        money:NaN,
-       totalprice:null
+       totalprice:null,
+       shoppingshow:false,
+       aaa:false,
     }
   },
     components:{
@@ -66,9 +75,12 @@ export default {
       // 从本地存储获取到用户已经点击加入过购物车的书本
         getLocalBookList() {
             if(!localStorage.getItem("shoppingInfo")){
+               this.shoppingshow=true;
                 return;
             }else{
                 // 从本地取出书的数组
+                 this.aaa=true;
+                this.shoppingshow = false;
                 let localBookArr = JSON.parse(localStorage.getItem("shoppingInfo")),
                     localBookArr_len = localBookArr.length;
                 for(let i = 0;i < localBookArr_len;i++){
@@ -79,6 +91,11 @@ export default {
                     localBookArr[i].cartCount = 1;
                 }
                 this.cartBookList = localBookArr;
+                let cartBookList_len = this.cartBookList.length;
+                for(let i = 0;i < cartBookList_len;i++){
+                 this.totalprice=this.cartBookList[i].cartCount*this.cartBookList[i].price             
+                }
+               this.totalprice = this.totalprice.toFixed(2)
             }
         },
         //点击编辑按钮
@@ -161,18 +178,13 @@ export default {
       closecenter(){
         this.show=!this.show;
       },
+     
     },
     created() {
         this.getLocalBookList();
     },
     computed:{
-         totalPrice(){
-         let cartBookList_len = this.cartBookList.length;
-         for(let i = 0;i < cartBookList_len;i++){
-             this.totalprice=this.cartBookList[i].cartCount*this.cartBookList[i].price
-            }
-            return this.totalprice = this.totalprice.toFixed(2)
-      }
+      
     }
 
    

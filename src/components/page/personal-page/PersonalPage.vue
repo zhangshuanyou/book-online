@@ -84,7 +84,7 @@ export default {
     return {
     logtitle:'登录/注册',
               logsucessstates: false,
-              notlogstates: true,
+              notlogstates: false,
               showwrongcue:false,
               telval:'',
               pwdval:'',
@@ -108,6 +108,7 @@ export default {
               showback2:false
     }
   },
+  
   methods:{
      //点击注册标题按钮
       registbtn(){
@@ -222,8 +223,21 @@ export default {
      back2(){
         this.showaddress = false;
          this.showback2 = false;
+     },
+     judgeLand(){
+       let nickname = localStorage.getItem('nickname');
+       if(nickname === ""){
+        this.notlogstates=true
+       }else{
+         this.logsucessstates=true
+         this.logtitle = '个人中心';
+        this.personname = nickname
+       }
      }
 
+    },
+    created(){
+      this.judgeLand();
     }
   }
   

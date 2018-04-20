@@ -1,4 +1,6 @@
 .ShoppingCart{
+    width: 100%;
+    height: 100%;
     box-sizing: border-box;
     background-color: rgb(242, 242, 242);
     position: relative;
@@ -8,6 +10,7 @@
     margin: 10px;
     position: absolute;
     right: 0;
+    top: 50px;
 }
 .cart-eddit{
        font-size: 14px;
@@ -183,8 +186,19 @@ ul{
     font-style: normal ;
     color: #e41010;
 }
- 
-
+.shopping-blan{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: relative;
+}
+.shopping-blank-span{
+    font-size: 20px;    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
 
 
 

@@ -75,7 +75,7 @@ export default {
             "price":this.book.price
         };
       this.shoppingInfoS.push(shoppingInfo);
-      sessionStorage.setItem("shoppingInfo",JSON.stringify(this.shoppingInfoS));           
+      localStorage.setItem("shoppingInfo",JSON.stringify(this.shoppingInfoS));           
     }
   }
 }
