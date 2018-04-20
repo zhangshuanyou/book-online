@@ -1,7 +1,8 @@
 <template>
-  <div id="personaldata" v-show="showpersondatacomp">
+  <div id="personaldata" v-show="showpersondatacomp"> 
+    <router-link @click="topersondata" :to="{name:'HomePage'}">
    <header class="fa fa-angle-left fa-2x">修改个人资料</header>
-   <div class="header"></div>
+   <div class="header"></div></router-link>
     <div>
       <span>昵称</span>
       <input type="text" v-model="changenickname">
@@ -33,7 +34,7 @@
     <section class="mask" v-show="showchangemask">
       <div>
         <p>修改成功!</p>
-        <button @click="changemaskbtn">确认</button>
+       <button @click="changemaskbtn" >确认</button>
       </div>
     </section>
   </div>
@@ -90,6 +91,13 @@
         localStorage.setItem('des',this.changedes);
         this.$emit('showdatachange');
       },
+      topersondata(){
+        // this.showback = true;
+        // this.logsuceess = true;
+        // this.notlog = false;
+        // this.notlogstates = false;
+      },
+     
       checkItem(index){
         const genderleng = this.genders.length;
         for(var i = 0;i < genderleng;i++){

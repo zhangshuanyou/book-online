@@ -3,7 +3,7 @@ html,body,ul,li{
   padding: 0;
   width: 100%;
 }
-.PersonalPage>header{
+header{
   background-color: #000;
   color: white;
   height: 45px;
@@ -209,6 +209,8 @@ ul>li>a{
   font-size: 13px;
   height: 20px;
   float: left;
+  padding: 10px;
+  line-height: 20px;
 }
 ul>li>span{
   width: 50px;

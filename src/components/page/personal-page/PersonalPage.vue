@@ -48,7 +48,7 @@
         </div>
         <ul class="personinfo">
           <router-link @click="topersondata" tag="li" :to="{name:'PersonalData'}"><a >设置个人资料</a><span>></span></router-link>
-          <li @click="toaddress"><a >收货地址管理</a><span>></span></li>
+          <router-link @click="toaddress" tag="li" :to="{name:'Changge'}"><a >收货地址管理</a><span>></span></router-link>
         </ul>
         <ul class="mycomment">
           <li><a>我的订单</a><span>></span> </li>
@@ -201,8 +201,8 @@ export default {
         this.logsucessstates = false;
         this.showpersonerdata = true;
       },
-     //子组件事件
-     showdatachanges(){
+      //子组件事件
+      showdatachanges(){
        this.showpersonerdata = false;
        this.logsucessstates = true;
        this.showback = false;

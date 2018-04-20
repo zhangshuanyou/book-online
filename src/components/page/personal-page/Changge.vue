@@ -1,9 +1,9 @@
 <template>
-  <div class="changeaddress">
-      <div class="title">
-        <div class="goback" @click="$emit('closeone')"></div>
-        <p>收货地址</p>
-      </div>
+  <div class="changeress">
+     
+    <header class="fa fa-angle-left"> <router-link @click="topersondata" :to="{name:'HomePage'}"> </router-link>收货地址</header>
+   <div class="header"></div>
+     
       <div class="addressBox">
           <div class="nameBox">
               <label for="">姓名</label>
@@ -38,7 +38,7 @@
                   <option value="">金牛区</option>
                   <option value="">高新区</option>
                   <option value="">武侯区</option>
-                  <option value="">景江区</option>
+                  <option value="">锦江区</option>
                   <option value="">成华区</option>
                   <option value="">...</option>
               </select>
@@ -56,10 +56,17 @@
 <script>
     export default{
         name:'Change',
-        
+        methods:{
+             topersondata(){
+        // this.showback = true;
+        // this.logsuceess = true;
+        // this.notlog = false;
+        // this.notlogstates = false;
+      },
+        }
     }
 </script>
 
 <style>
-  
+   @import './Changge.scss';
 </style>
