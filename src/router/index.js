@@ -47,7 +47,9 @@ export default new Router({
       name: 'Changge',
       component: Changge
     },
-     { path:'/details',
+
+{
+      path:'/details',
       name:'Details',
       component:Details
     },
