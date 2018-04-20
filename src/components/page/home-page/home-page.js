@@ -53,18 +53,22 @@ export default {
         })
       },
       clickBook(index){
-        this.newBook.push(this.obtainInfo);
-        this.obtainInfo={
-          name:this.newBook[index].name,
-          describe:this.newBook[index].describe,
-          author:this.newBook[index].author,
-          cover:this.newBook[index].cover,
-          price:this.newBook[index].price
-        }
+          this.newBook.push(this.obtainInfo);
+          this.obtainInfo={
+            name:this.newBook[index].name,
+            describe:this.newBook[index].describe,
+            author:this.newBook[index].author,
+            cover:this.newBook[index].cover,
+            price:this.newBook[index].price
+          }
         this.mask = true;
+        this.newBook.splice(this.newBook.length-1,1)
+      },
+      aaa(arr,index){
+
       },
       close(){
-        this.mask=false;
+        this.mask=false; 
       },
     },
     mounted() {

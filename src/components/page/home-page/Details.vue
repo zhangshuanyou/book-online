@@ -28,7 +28,7 @@
           <p class="book-title">{{ book.name }}</p>  
         </div> 
       <div class="book-btn">
-          <router-link tag="button" :to="{name:'ShoppingCart'}">加入购物车</router-link>
+          <button @click="clickShopping()">加入购物车</button>
           <router-link tag="button" :to="{name:'Settlement'}">立即购买</router-link>
       </div>
       <div class="book-blank"></div>
@@ -62,7 +62,20 @@ export default {
   data () {
     let bookInfo = this.$route.params
     return {
-      book:bookInfo
+      book:bookInfo,
+      shoppingInfoS:[]
+    }
+  },
+  methods:{
+    clickShopping(){
+      let shoppingInfo = {
+            "name":this.book.name,
+            "author":this.book.author,
+            "cover":this.book.cover,
+            "price":this.book.price
+        };
+      this.shoppingInfoS.push(shoppingInfo);
+      sessionStorage.setItem("shoppingInfo",JSON.stringify(this.shoppingInfoS));           
     }
   }
 }

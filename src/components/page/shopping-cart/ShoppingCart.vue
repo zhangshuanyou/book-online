@@ -1,6 +1,8 @@
 <template>
   <div class="ShoppingCart">
-    <header>购物车</header>
+    <header>
+      购物车
+      </header>
     <div class="header"></div>
     <!-- 编辑和删除部分 -->
     <div class="cart-delete">
@@ -22,7 +24,7 @@
           </i>
         </div>
         <div class="cart-book-box" :class="{moveBookBox: book.moveBookBox}">
-          <img :src="book.img" alt="" class="cart-img">
+          <img :src="book.cover" alt="" class="cart-img">
           <div class="clear"></div>
           <div class="infoBox">
             <p class="bookname">{{book.name}}</p>
@@ -37,6 +39,7 @@
         </div>
       </li>
     </ul>
+      <span class="total-price">商品总价:<i class="total-price-i">￥{{ totalPrice }}</i></span>
     <div class="cart-pay">
       <button @click="showcenter" class="btn">前往支付</button>
     </div>
@@ -53,7 +56,8 @@ export default {
      cartBookList:[],
        show:false,
        eddit:true,
-       money:NaN
+       money:NaN,
+       totalprice:null
     }
   },
     components:{
@@ -61,11 +65,11 @@ export default {
      methods: {
       // 从本地存储获取到用户已经点击加入过购物车的书本
         getLocalBookList() {
-            if(!localStorage.book){
+            if(!localStorage.getItem("shoppingInfo")){
                 return;
             }else{
                 // 从本地取出书的数组
-                let localBookArr = JSON.parse(localStorage.book),
+                let localBookArr = JSON.parse(localStorage.getItem("shoppingInfo")),
                     localBookArr_len = localBookArr.length;
                 for(let i = 0;i < localBookArr_len;i++){
                     localBookArr[i].notSelect = false;
@@ -156,10 +160,19 @@ export default {
       //收货地址显隐
       closecenter(){
         this.show=!this.show;
-      }
+      },
     },
     created() {
         this.getLocalBookList();
+    },
+    computed:{
+         totalPrice(){
+         let cartBookList_len = this.cartBookList.length;
+         for(let i = 0;i < cartBookList_len;i++){
+             this.totalprice=this.cartBookList[i].cartCount*this.cartBookList[i].price
+            }
+            return this.totalprice = this.totalprice.toFixed(2)
+      }
     }
 
    
