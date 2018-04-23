@@ -3,7 +3,7 @@ html,body,ul,li{
   padding: 0;
   width: 100%;
 }
-.PersonalPage>header{
+header{
   background-color: #000;
   color: white;
   height: 45px;
@@ -191,7 +191,14 @@ a{
   top: 125px;
   left: 43%;
 }
-
+.personinfo > li{
+  text-align: left;
+  color: rgba(94,94,94,1);
+  font-size: 13px;
+  padding: 0 0 0 10px;;
+  height: 40px;
+  line-height: 40px;
+}
 
 ul{
   margin-top: 15px;
@@ -209,6 +216,8 @@ ul>li>a{
   font-size: 13px;
   height: 20px;
   float: left;
+  padding: 10px;
+  line-height: 20px;
 }
 ul>li>span{
   width: 50px;

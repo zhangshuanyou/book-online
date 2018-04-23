@@ -1,0 +1,104 @@
+.settlement{
+    background: rgb(245, 244, 244);
+    height: 100%;
+    overflow: hidden;
+}
+header{
+    position: relative;
+}
+.settlemnt-return{
+    font-size: 30px;
+    position: absolute;
+    left: 20px;
+    top:50%;
+    transform: translateY(-50%);
+}
+main{
+    height: calc(100% - 130px);
+    overflow: auto;
+}
+section{
+    width: 90%;
+    margin: 0 auto;
+}
+.settlement-title{
+    margin: 10px 0 10px 10px;;
+    text-align: left;
+}
+.shoppInfo{
+    width: 100%;
+    background: #fff;
+    border: 1px solid rgb(245, 244, 244);
+}
+.price-info{
+    width: 100%;
+    border-bottom: 4px solid rgb(245, 244, 244);
+}
+.price-info-title{
+    text-align: left;
+    margin-left: 20px;
+}
+.set-price-info{
+    text-align: left;
+}
+.set-price-info-p{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    padding:0 20px 0 30px;
+}
+.set-price-info-address{
+    font-size: 14px;
+    position: relative;
+    border-top:1px solid rgb(233, 232, 232); 
+    line-height: 35px;
+    margin: 0;
+    height: 35px;
+}
+.set-price-info-address-i{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.payment{
+    list-style: none;
+    text-align: left;
+    padding-left: 0;
+    background: #fff;
+    border: 1px solid rgb(233, 232, 232);
+}
+.payment-li{
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    padding-left: 20px;
+    position: relative;
+    border-bottom: 1px solid rgb(233, 232, 232);
+}
+.payment-li-i{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.payment-label{
+    margin-right: 10px;
+}
+.payment-label-one{
+    color: rgb(17, 218, 17);
+}
+.payment-label-two{
+    color: rgb(218, 154, 17);
+}
+.payment-label-three{
+    color: rgb(97, 200, 241);
+}
+.payment-label-four{
+    color: rgb(218, 17, 134);
+}
+.payment-label-five{
+    color: rgb(72, 75, 243);
+}

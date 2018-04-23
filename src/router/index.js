@@ -48,6 +48,7 @@ export default new Router({
       component: Changge
     },
 
+{
       path:'/details',
       name:'Details',
       component:Details
@@ -59,5 +60,6 @@ export default new Router({
     }
 
   ],
-  linkActiveClass: 'active'
+  linkActiveClass: 'active',
+  
 })

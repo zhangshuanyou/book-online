@@ -1,8 +1,17 @@
 <template>
   <div class="ShoppingCart">
-    <header>购物车</header>
+   <section class="shoppingcart">
+      <header>
+      购物车
+      </header>
     <div class="header"></div>
-    <!-- 编辑和删除部分 -->
+    <div class="shopping-blank" v-show="shoppingshow">
+      <span class="shopping-blank-span">
+        购物车里空空如也，<router-link tag="a" :to="{name:'HomePage'}">去逛逛？</router-link>
+      </span>
+    </div>
+    <div class="commodity" v-show="aaa">
+      <!-- 编辑和删除部分 -->
     <div class="cart-delete">
       <span v-if="eddit" class="cart-eddit" @click="edditBtn">编辑</span>
       <div v-else class="cart-dele">
@@ -22,7 +31,7 @@
           </i>
         </div>
         <div class="cart-book-box" :class="{moveBookBox: book.moveBookBox}">
-          <img :src="book.img" alt="" class="cart-img">
+          <img :src="book.cover" alt="" class="cart-img">
           <div class="clear"></div>
           <div class="infoBox">
             <p class="bookname">{{book.name}}</p>
@@ -38,9 +47,17 @@
       </li>
     </ul>
     <div class="cart-pay">
-      <button @click="showcenter" class="btn">前往支付</button>
+      <button @click="showcenter" class="btn"> 前往支付</button>
     </div>
-
+    </div>
+    <div class="userInfo" v-show="userInfomrsk">
+      <div class="userInfomask">
+        <span>您的收货地址不完善，是否完善？</span><br>
+        <router-link tag="button" :to="{name:'PersonalPage'}" class="useryes">是</router-link>
+        <button class="userno" @click="closecenter">否</button>
+      </div>
+    </div>
+   </section>
   </div>
 </template>
 
@@ -53,7 +70,11 @@ export default {
      cartBookList:[],
        show:false,
        eddit:true,
-       money:NaN
+       money:NaN,
+       totalprice:null,
+       shoppingshow:false,
+       aaa:false,
+       userInfomrsk:false
     }
   },
     components:{
@@ -61,11 +82,14 @@ export default {
      methods: {
       // 从本地存储获取到用户已经点击加入过购物车的书本
         getLocalBookList() {
-            if(!localStorage.book){
+            if(!localStorage.getItem("shoppingInfos")){
+               this.shoppingshow=true;
                 return;
             }else{
                 // 从本地取出书的数组
-                let localBookArr = JSON.parse(localStorage.book),
+                 this.aaa=true;
+                this.shoppingshow = false;
+                let localBookArr = JSON.parse(localStorage.getItem("shoppingInfos")),
                     localBookArr_len = localBookArr.length;
                 for(let i = 0;i < localBookArr_len;i++){
                     localBookArr[i].notSelect = false;
@@ -145,21 +169,35 @@ export default {
         },
         //收货地址显隐及总价计算
       showcenter(){
-        this.show=!this.show;
-        let cartBookList_len = this.cartBookList.length;
-        var num=0;
-            for(let i = 0;i < cartBookList_len;i++){
+        let userInfo = localStorage.getItem("useraddress")
+        if(!userInfo){
+          this.userInfomrsk = true
+        }else{
+          let cartBookList_len = this.cartBookList.length;
+          var num=0;
+             for(let i = 0;i < cartBookList_len;i++){
                 num+=this.cartBookList[i].cartCount*this.cartBookList[i].price
-            }
-        this.money =num;
+             }
+          this.money =num;
+          let shoppingprice = this.money.toFixed(2);
+          localStorage.setItem("price",shoppingprice);
+          location.href='/settlement'
+        }
+      
       },
       //收货地址显隐
       closecenter(){
-        this.show=!this.show;
-      }
+        this.userInfomrsk=false
+      },
+     
     },
     created() {
         this.getLocalBookList();
+    },
+    computed:{
+      totalPrice(){
+       
+      }
     }
 
    

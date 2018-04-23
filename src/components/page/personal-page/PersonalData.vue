@@ -1,6 +1,10 @@
 <template>
-  <div id="personaldata" v-show="showpersondatacomp">
-   <header class="fa fa-angle-left fa-2x">修改个人资料</header>
+  <div id="personaldata" v-show="showpersondatacomp"> 
+   
+   <header>
+    <router-link @click="topersondata" :to="{name:'PersonalPage'}" tag="span">&lt;</router-link>
+     修改个人资料
+     </header>
    <div class="header"></div>
     <div>
       <span>昵称</span>
@@ -20,7 +24,7 @@
       <span>生日</span>
       <input type="date" v-model="changebirth">
     </div>
-    <div>
+    <div class="id-card">
       <span>身份证号</span>
       <input type="text" placeholder="请输入您的身份证号" v-model="changeid">
     </div>
@@ -33,7 +37,7 @@
     <section class="mask" v-show="showchangemask">
       <div>
         <p>修改成功!</p>
-        <button @click="changemaskbtn">确认</button>
+       <button @click="changemaskbtn" >确认</button>
       </div>
     </section>
   </div>
@@ -90,6 +94,13 @@
         localStorage.setItem('des',this.changedes);
         this.$emit('showdatachange');
       },
+      topersondata(){
+        // this.showback = true;
+        // this.logsuceess = true;
+        // this.notlog = false;
+        // this.notlogstates = false;
+      },
+     
       checkItem(index){
         const genderleng = this.genders.length;
         for(var i = 0;i < genderleng;i++){
