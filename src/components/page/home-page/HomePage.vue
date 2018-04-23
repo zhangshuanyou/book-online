@@ -7,13 +7,13 @@
       <div class="swiper-container">
         <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <img src="../../../assets/flash-01.png" alt="好书提前囤">
+          <img src="../../../assets/flash-01.png" alt="">
         </div>
         <div class="swiper-slide">
-          <img src="../../../assets/flash-02.png" alt="好书提前囤">
+          <img src="../../../assets/flash-02.png" alt="">
         </div>
         <div class="swiper-slide">
-          <img src="../../../assets/flash-03.png" alt="好书提前囤">
+          <img src="../../../assets/flash-03.png" alt="">
         </div>
     </div>
     <!-- Add Pagination -->
@@ -38,7 +38,7 @@
     <section class="main-book">
       <h3>编辑推荐</h3>
       <ul>
-        <li v-for="hotbook in hotBook" :key="hotbook.id">
+        <li v-for="(hotbook,index) in hotBook" :key="hotbook.id" @click="clickBook(index)">
           <img class="book-img" :src='hotbook.cover' alt="">
           <p class="book-name">{{ hotbook.name }}</p>
           <p class="book-price">￥&nbsp;{{ hotbook.price }}</p>
@@ -49,12 +49,21 @@
     <section class="main-book">
       <h3>热门新书</h3>
       <ul>
-        <li v-for="groombook in groomBook" :key="groombook.id">
+        <li v-for="(groombook,index) in groomBook" :key="groombook.id" @click="clickBook(index)">
            <img class="book-img" :src='groombook.cover' alt="">
           <p class="book-name">{{ groombook.name }}</p>
           <p class="book-price">￥&nbsp;{{ groombook.price }}</p>
         </li>
       </ul>
+    </section>
+      <section class="shoppingmask" v-show="showmask">
+        <div>
+         <p>还没有登录，是否登录？</p>
+         <router-link tag="button" 
+         :to="{name:'PersonalPage'}"
+         @click.native="maskbtn">确认</router-link>
+        <button @click="maskbtn">取消</button>              
+        </div> 
     </section>
     </main>
     <!-- 弹出框信息 -->
@@ -103,8 +112,8 @@
         </p>
         <!-- 购买与加入购物车 -->
         <div class="book-btn">
-          <button type="button">加入购物车</button>
-          <button type="button">立即购买</button>
+          <router-link tag="button" :to="{name:'ShoppingCart'}"><span @click="clickShopping">加入购物车</span></router-link>       
+          <router-link tag="button" :to="{name:'ShoppingCart'}"  @click.native="clickShopping">立即购买</router-link>               
         </div>
     </section>
   </div>

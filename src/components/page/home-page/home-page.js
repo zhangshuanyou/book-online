@@ -8,6 +8,7 @@ export default {
         hotBook:[],
         groomBook:[],
         mask:false,
+        showmask:false,
         obtainInfo:{
           name:"",
           describe:"",
@@ -53,23 +54,38 @@ export default {
         })
       },
       clickBook(index){
-          this.newBook.push(this.obtainInfo);
-          this.obtainInfo={
-            name:this.newBook[index].name,
-            describe:this.newBook[index].describe,
-            author:this.newBook[index].author,
-            cover:this.newBook[index].cover,
-            price:this.newBook[index].price
-          }
-        this.mask = true;
-        this.newBook.splice(this.newBook.length-1,1)
-      },
-      aaa(arr,index){
-
+         this.getBookArr(index,this.newBook);
+         this.getBookArr(index,this.hotBook);
+         this.getBookArr(index,this.groomBook);         
       },
       close(){
         this.mask=false; 
       },
+      getBookArr(index,arr){
+        arr.push(this.obtainInfo);
+        this.obtainInfo={
+          name:arr[index].name,
+          describe:arr[index].describe,
+          author:arr[index].author,
+          cover:arr[index].cover,
+          price:arr[index].price
+        }
+      this.mask = true;
+      arr.splice(arr.length-1,1)
+      },
+      clickShopping(){
+       
+          let shoppingInfo = {
+              "name":this.obtainInfo.name,
+              "author":this.obtainInfo.author,
+              "cover":this.obtainInfo.cover,
+              "price":this.obtainInfo.price
+          };
+        this.$emit('shoppingInfo',shoppingInfo)   
+        },
+        maskbtn(){
+          this.showmask=false
+        } 
     },
     mounted() {
       this.runSwiper();

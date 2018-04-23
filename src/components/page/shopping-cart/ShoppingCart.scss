@@ -1,9 +1,15 @@
 .ShoppingCart{
     width: 100%;
     height: 100%;
+    overflow: hidden;
     box-sizing: border-box;
     background-color: rgb(242, 242, 242);
     position: relative;
+}
+.shoppingcart{
+    width: 100%;
+    height: calc(100% - 130px);
+    overflow: auto;
 }
 .cart-delete{
     cursor: pointer;
@@ -186,20 +192,54 @@ ul{
     font-style: normal ;
     color: #e41010;
 }
-.shopping-blan{
+.shopping-blank{
     width: 100%;
     height: 100%;
     text-align: center;
     position: relative;
+   
 }
 .shopping-blank-span{
-    font-size: 20px;    
+    font-size: 20px; 
+    color: #050505; 
+    font-weight: bold;  
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%)
 }
 
+.userInfo{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.4);
+}
+.userInfo > .userInfomask{
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    padding: 40px 0;
+}
+.userInfomask > button{
+    width: 40%;
+    height: 35px;
+    line-height: 35px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    outline: none;
+}
+.useryes{
+    background: green;
+    color: #fff;
+}
 
 
     

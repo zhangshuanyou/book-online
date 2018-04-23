@@ -1,7 +1,7 @@
 <template>
   <div class="settlement">
     <header>
-      <router-link tag="i" :to="{name:'ShoppingCart'}" class="settlemnt-return">&lt;</router-link>
+      <router-link tag="span" :to="{name:'ShoppingCart'}" class="settlemnt-return">&lt;</router-link>
       结算中心
       </header>
      <main>
@@ -12,13 +12,13 @@
               <h4 class="price-info-title">价格信息</h4>
               <span class="set-price-info">
                 <p class="set-price-info-p">
-                  <span>商品总价：</span><label></label>
+                  <span>商品总价：</span><label>￥{{price}}</label>
                 </p>
                 <p class="set-price-info-p">
-                  <span>运送费：</span><label></label>
+                  <span>运送费：</span><label>￥{{freight}}</label>
                   </p>
                 <p class="set-price-info-p">
-                  <span>订单信息：</span><label></label>
+                  <span>订单信息：</span><label>￥{{totalprice}}</label>
                   </p>
               </span>
             </div>
@@ -26,11 +26,11 @@
               <h4 class="price-info-title">收货信息</h4>
               <p class="set-price-info-p">
                 <label>收货地址：</label>
-                <span></span>
+                <span>{{ address }}</span>
               </p>
               <p class="set-price-info-p">
                 <label>收货人：</label>
-                <span></span>
+                <span>{{ username }}</span>
               </p>
               <p class="set-price-info-p">
                 <label>邮编：</label>
@@ -38,7 +38,7 @@
               </p>
               <p class="set-price-info-p">
                 <label>电话：</label>
-                <span></span> 
+                <span>{{ phone }}</span> 
               </p>
               <p class="set-price-info-p set-price-info-address">
                 <span>修改地址</span><i class="set-price-info-address-i">&gt;</i>
@@ -78,8 +78,34 @@ export default {
   name: 'Settlement',
   data () {
     return {
-       
+       price:null,
+       totalprice:null,
+        username:"",
+        phone:"",
+        address:"",
+        freight:"10"
     }
+  },
+  methods:{
+    calculation(){
+      let price = localStorage.getItem("price");
+      let useraddress = JSON.parse(localStorage.getItem("useraddress"))
+      console.log(useraddress)
+      if(!price){
+        return
+      }else{
+        this.price=price;
+        this.totalprice = Number(this.freight) +  Number(price);
+        
+          this.username = useraddress[0].username;
+          this.phone = useraddress[0].phone;
+          this.address = useraddress[0].address; 
+        
+      }
+    }
+  },
+  created(){
+    this.calculation();
   }
 }
 </script>

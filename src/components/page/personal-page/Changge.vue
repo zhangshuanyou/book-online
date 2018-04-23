@@ -1,17 +1,18 @@
 <template>
   <div class="changeress">
      
-    <header class="fa fa-angle-left"> <router-link @click="topersondata" :to="{name:'HomePage'}"> </router-link>收货地址</header>
+    <header>
+         <router-link  :to="{name:'PersonalPage'}" tag="span" class="change-i">&lt; </router-link>收货地址</header>
    <div class="header"></div>
      
       <div class="addressBox">
           <div class="nameBox">
               <label for="">姓名</label>
-              <input type="text" placeholder="请填写您的真实姓名">
+              <input type="text" placeholder="请填写您的真实姓名" v-model="username">
           </div>
           <div class="tellBox">
               <label for="">联系电话</label>
-              <input type="text" placeholder="请填写我们联系您的电话">
+              <input type="text" placeholder="请填写我们联系您的电话" v-model="phone">
           </div>
           <div class="postBox">
               <label for="">邮政编码</label>
@@ -45,28 +46,40 @@
           </div>
           <div class="writeaddress">
               <label for="">详细地址</label>
-              <input type="text" placeholder="请填写详细的街道、楼栋、门牌号">
+              <input type="text" placeholder="请填写详细的地址" v-model="address">
           </div>
       </div>
-      <button class="changebtn">确认修改</button>
+      <router-link tag="button" class="changebtn" :to="{name:'ShoppingCart'}"><span @click="topersondata">确认修改</span></router-link>
   </div>
 </template>
 
 
 <script>
     export default{
-        name:'Change',
+        name:'Changge',
+        data(){
+            return{
+                username:"",
+                address:"",
+                phone:"",
+                useraddress:[]
+            }
+        },
         methods:{
-             topersondata(){
-        // this.showback = true;
-        // this.logsuceess = true;
-        // this.notlog = false;
-        // this.notlogstates = false;
-      },
+         topersondata(){
+             let useradd={
+                 "username":this.username,
+                 "address":this.address,
+                 "phone":this.phone
+             }
+             this.useraddress.push(useradd);
+             localStorage.setItem("useraddress",JSON.stringify(this.useraddress))
+            },
         }
     }
 </script>
 
 <style>
    @import './Changge.scss';
+   @import '../../common/common.scss';
 </style>

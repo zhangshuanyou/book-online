@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <router-view/>
+    <router-view v-on:shoppingInfo='setInfo'/>
     <ul class="footer">
       <router-link tag="li" :to="{name:'HomePage'}" exact>
         <span class="page-btn-img fa fa-home fa-2x"></span>
@@ -25,7 +25,19 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data(){
+    return{
+      shoppingInfo:[]
+    }
+  },
+  methods:{
+    setInfo(shoppingInfo){
+        this.shoppingInfo.push(shoppingInfo)
+        localStorage.setItem(`shoppingInfos`,JSON.stringify(this.shoppingInfo))
+    }
+  }
+
 }
 </script>
 

@@ -26,10 +26,12 @@ section{
     text-align: left;
 }
 .shoppInfo{
+    width: 100%;
     background: #fff;
     border: 1px solid rgb(245, 244, 244);
 }
 .price-info{
+    width: 100%;
     border-bottom: 4px solid rgb(245, 244, 244);
 }
 .price-info-title{
@@ -40,8 +42,12 @@ section{
     text-align: left;
 }
 .set-price-info-p{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     text-align: left;
-    padding-left: 30px;
+    padding:0 20px 0 30px;
 }
 .set-price-info-address{
     font-size: 14px;

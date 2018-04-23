@@ -33,9 +33,8 @@
           <button @click="regist" class="logbtn" v-show="showregistbtn">注册</button>
           <section class="mask" v-show="showmask">
             <div>
-              <p>注册成功!</p>
-              <button @click="maskbtn">确认</button>
-              <button @click="maskbtn">取消</button>
+              <p>恭喜您注册成功!</p>
+              <router-link tag="button" :to="{name:'HomePage'}" @click.native="maskbtn">确认</router-link>
             </div> 
            </section>
         </div>
@@ -47,8 +46,8 @@
            <p class="personname">{{personname}}</p>
         </div>
         <ul class="personinfo">
-          <router-link @click="topersondata" tag="li" :to="{name:'PersonalData'}"><a >设置个人资料</a><span>></span></router-link>
-          <router-link @click="toaddress" tag="li" :to="{name:'Changge'}"><a >收货地址管理</a><span>></span></router-link>
+          <router-link @click="topersondata" tag="li" :to="{name:'PersonalData'}">设置个人资料<span>></span></router-link>
+          <router-link @click="toaddress" tag="li" :to="{name:'Changge'}">收货地址管理<span>></span></router-link>
         </ul>
         <ul class="mycomment">
           <li><a>我的订单</a><span>></span> </li>
@@ -146,11 +145,13 @@ export default {
          localStorage.setItem('telval',this.telval);
          localStorage.setItem('nickname',this.nicknameval);
          localStorage.setItem('pwdval',this.pwdval);
+       
          //清空输入框
           this.telval = '';
           this.pwdval = '';
           this.nicknameval = '';
           this.confirpwdval = '';
+         
        }
        else{
          //输入错误，弹出提示消息并且清空原来的值
@@ -194,6 +195,7 @@ export default {
       maskbtn(){
         this.showmask = false;
         this.showwrongcue = false;
+        
       },
       //点击个人资料事件
       topersondata(){
@@ -226,7 +228,7 @@ export default {
      },
      judgeLand(){
        let nickname = localStorage.getItem('nickname');
-       if(nickname === ""){
+       if(!localStorage.getItem('nickname')){
         this.notlogstates=true
        }else{
          this.logsucessstates=true
