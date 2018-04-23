@@ -28,8 +28,10 @@
           <p class="book-title">{{ book.name }}</p>  
         </div> 
       <div class="book-btn">
-          <button @click="clickShopping()">加入购物车</button>
-          <router-link tag="button" :to="{name:'Settlement'}">立即购买</router-link>
+        <router-link tag="button" :to="{name:'ShoppingCart'}"><span @click="clickShopping">加入购物车</span></router-link>       
+        <router-link tag="button" :to="{name:'ShoppingCart'}"><span @click="clickShopping">立即购买</span></router-link>       
+        
+        <!-- <button @click="clickShopping" >立即购买</button> -->
       </div>
       <div class="book-blank"></div>
       <div class="info-class">
@@ -53,6 +55,15 @@
         </fieldset>
       </div>
     </section>
+    <section class="mask" v-show="showmask">
+        <div>
+         <p>还没有登录，是否登录？</p>
+         <router-link tag="button" 
+         :to="{name:'PersonalPage'}"
+         @click.native="maskbtn">确认</router-link>
+        <button @click="maskbtn">取消</button>              
+        </div> 
+    </section>
   </div>
 </template>
 
@@ -63,21 +74,28 @@ export default {
     let bookInfo = this.$route.params
     return {
       book:bookInfo,
-      shoppingInfoS:[]
+      shoppingInfoS:[],
+      showmask:false
     }
   },
   methods:{
     clickShopping(){
-      let shoppingInfo = {
+     
+        let shoppingInfo = {
             "name":this.book.name,
             "author":this.book.author,
             "cover":this.book.cover,
             "price":this.book.price
         };
-      this.shoppingInfoS.push(shoppingInfo);
-      localStorage.setItem("shoppingInfo",JSON.stringify(this.shoppingInfoS));           
-    }
+      this.$emit('shoppingInfo',shoppingInfo)
+      // location.href='/shoppingcart'     
+    
+      },  
+      maskbtn(){
+        this.showmask=false
+      }
   }
+  
 }
 </script>
 

@@ -8,7 +8,8 @@
        class="class-input"
        v-model="inputVal"
        @keyup.enter="searchInfo()"
-        />
+        /><br>
+        <span class="class-num">共有<i>{{ searchBook.length}}</i>件商品</span>
       <ul class="book-info">
         <router-link tag="li" :to="{name:'Details',params:book}" v-for="book in searchBook" :key="book.id">
           <span class="book-left">

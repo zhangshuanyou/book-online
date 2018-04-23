@@ -1,6 +1,7 @@
 <template>
   <div class="ShoppingCart">
-    <header>
+   <section class="shoppingcart">
+      <header>
       购物车
       </header>
     <div class="header"></div>
@@ -45,12 +46,18 @@
         </div>
       </li>
     </ul>
-      <span class="total-price">商品总价:<i class="total-price-i">{{totalprice}}</i></span>
     <div class="cart-pay">
-      <button @click="showcenter" class="btn">前往支付</button>
+      <button @click="showcenter" class="btn"> 前往支付</button>
     </div>
-
     </div>
+    <div class="userInfo" v-show="userInfomrsk">
+      <div class="userInfomask">
+        <span>您的收货地址不完善，是否完善？</span><br>
+        <router-link tag="button" :to="{name:'PersonalPage'}" class="useryes">是</router-link>
+        <button class="userno" @click="closecenter">否</button>
+      </div>
+    </div>
+   </section>
   </div>
 </template>
 
@@ -67,6 +74,7 @@ export default {
        totalprice:null,
        shoppingshow:false,
        aaa:false,
+       userInfomrsk:false
     }
   },
     components:{
@@ -74,14 +82,14 @@ export default {
      methods: {
       // 从本地存储获取到用户已经点击加入过购物车的书本
         getLocalBookList() {
-            if(!localStorage.getItem("shoppingInfo")){
+            if(!localStorage.getItem("shoppingInfos")){
                this.shoppingshow=true;
                 return;
             }else{
                 // 从本地取出书的数组
                  this.aaa=true;
                 this.shoppingshow = false;
-                let localBookArr = JSON.parse(localStorage.getItem("shoppingInfo")),
+                let localBookArr = JSON.parse(localStorage.getItem("shoppingInfos")),
                     localBookArr_len = localBookArr.length;
                 for(let i = 0;i < localBookArr_len;i++){
                     localBookArr[i].notSelect = false;
@@ -91,11 +99,6 @@ export default {
                     localBookArr[i].cartCount = 1;
                 }
                 this.cartBookList = localBookArr;
-                let cartBookList_len = this.cartBookList.length;
-                for(let i = 0;i < cartBookList_len;i++){
-                 this.totalprice=this.cartBookList[i].cartCount*this.cartBookList[i].price             
-                }
-               this.totalprice = this.totalprice.toFixed(2)
             }
         },
         //点击编辑按钮
@@ -166,17 +169,25 @@ export default {
         },
         //收货地址显隐及总价计算
       showcenter(){
-        this.show=!this.show;
-        let cartBookList_len = this.cartBookList.length;
-        var num=0;
-            for(let i = 0;i < cartBookList_len;i++){
+        let userInfo = localStorage.getItem("useraddress")
+        if(!userInfo){
+          this.userInfomrsk = true
+        }else{
+          let cartBookList_len = this.cartBookList.length;
+          var num=0;
+             for(let i = 0;i < cartBookList_len;i++){
                 num+=this.cartBookList[i].cartCount*this.cartBookList[i].price
-            }
-        this.money =num;
+             }
+          this.money =num;
+          let shoppingprice = this.money.toFixed(2);
+          localStorage.setItem("price",shoppingprice);
+          location.href='/settlement'
+        }
+      
       },
       //收货地址显隐
       closecenter(){
-        this.show=!this.show;
+        this.userInfomrsk=false
       },
      
     },
@@ -184,7 +195,9 @@ export default {
         this.getLocalBookList();
     },
     computed:{
-      
+      totalPrice(){
+       
+      }
     }
 
    
